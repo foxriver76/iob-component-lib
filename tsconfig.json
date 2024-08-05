@@ -1,5 +1,9 @@
 {
+  "include": ["src"],
   "compilerOptions": {
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "outDir": "build",
     "jsx": "react",
     "noImplicitReturns": true,
     "noImplicitThis": true,
