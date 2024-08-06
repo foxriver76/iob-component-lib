@@ -1,5 +1,5 @@
 import type { StoryObj, Meta } from '@storybook/react';
-import InfoBox from './InfoBox';
+import InfoBox from '@/components/molecules/InfoBox/InfoBox';
 
 type Story = StoryObj<typeof InfoBox>;
 

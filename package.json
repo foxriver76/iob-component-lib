@@ -6,7 +6,7 @@
     "lint": "eslint src",
     "clean": "rimraf build",
     "start": "storybook dev -p 6006",
-    "build": "tsc",
+    "build": "tsc && tsc-alias",
     "test": "jest src",
     "build-storybook": "storybook build"
   },
@@ -48,6 +48,7 @@
     "react-dom": "^18.3.1",
     "react-test-renderer": "^18.3.1",
     "storybook": "^8.2.7",
+    "tsc-alias": "^1.8.10",
     "webpack": "^5.93.0"
   }
 }

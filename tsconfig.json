@@ -1,6 +1,10 @@
 {
   "include": ["src"],
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
     "sourceMap": true,
     "skipLibCheck": true,
     "outDir": "build",

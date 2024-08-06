@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
-import InfoBox from './InfoBox';
-import Default from './InfoBox.stories';
+import InfoBox from '@/components/molecules/InfoBox/InfoBox';
+import Default from '@/components/molecules/InfoBox/InfoBox.stories';
 
 test('has the correct structure', () => {
     const { text } = Default.args;

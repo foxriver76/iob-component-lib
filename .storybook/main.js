@@ -1,4 +1,4 @@
-
+const path = require('path');
 
 /** @type { import('@storybook/react-webpack5').StorybookConfig } */
 const config = {
@@ -20,6 +20,14 @@ const config = {
   },
   "staticDirs": [
     "../public"
-  ]
+  ],
+  webpackFinal: async (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@/components': path.resolve(__dirname, "../src/components"),
+    };
+
+    return config;
+  }
 };
 export default config;

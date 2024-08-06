@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { Info } from '@mui/icons-material';
-import './InfoBox.css';
+import '@/components/molecules/InfoBox/InfoBox.css';
 
 interface InfoBoxProps {
     /** Test to display in the info box */
