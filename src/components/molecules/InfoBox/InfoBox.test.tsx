@@ -4,10 +4,10 @@ import InfoBox from '@/components/molecules/InfoBox/InfoBox';
 import Default from '@/components/molecules/InfoBox/InfoBox.stories';
 
 test('has the correct structure', () => {
-    const { text } = Default.args;
-    const component = render(<InfoBox {...Default.args} />);
+    const { children } = Default.args;
+    const component = render(<InfoBox {...Default.args}>{Default.args.children}</InfoBox>);
     const boxElement = component.container.children.item(0);
 
     expect(boxElement).toHaveClass('iom-info-box');
-    expect(screen.getByText(text)).toBeInTheDocument();
+    expect(screen.getByText(children)).toBeInTheDocument();
 });
