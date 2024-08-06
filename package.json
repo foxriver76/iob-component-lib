@@ -12,6 +12,7 @@
   "files": [
     "build"
   ],
+  "main": "build/index.js",
   "devDependencies": {
     "@babel/preset-env": "^7.25.3",
     "@babel/preset-react": "^7.24.7",
