@@ -1,0 +1,11 @@
+.iom-info-box {
+    white-space: preserve;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    border-width: 1px;
+    border-style: solid;
+    padding: 4px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+}

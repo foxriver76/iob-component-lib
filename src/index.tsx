@@ -1,3 +1,3 @@
-import ObjectBrowserEntry from './components/molecules/ObjectBrowserEntry/ObjectBrowserEntry';
+import InfoBox from './components/molecules/InfoBox/InfoBox';
 
-export { ObjectBrowserEntry };
+export { InfoBox };
