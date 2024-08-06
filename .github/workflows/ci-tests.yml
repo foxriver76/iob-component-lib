@@ -28,3 +28,84 @@ jobs:
 
       - name: Test
         run: npm run test
+
+  auto-merge:
+    if: |
+      always() &&
+      github.event_name == 'pull_request'
+    needs: [ lint-and-test ]
+    runs-on: ubuntu-latest
+    steps:
+      - id: automerge
+        name: automerge
+        uses: "pascalgn/automerge-action@v0.16.3"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          MERGE_LABELS: "automated pr 🔧"
+          MERGE_FILTER_AUTHOR: "foxbot76"
+          MERGE_FORKS: "false"
+          MERGE_DELETE_BRANCH: "false"
+          UPDATE_LABELS: "automated pr 🔧"
+          MERGE_METHOD: "squash"
+          MERGE_COMMIT_MESSAGE: "pull-request-title-and-description"
+
+      - name: Checkout repository
+        if: steps.automerge.outputs.mergeResult == 'merged'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch the history, or this action won't work
+          ref: 'main'
+
+      - name: Use Node.js 20
+        if: steps.automerge.outputs.mergeResult == 'merged'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Determine version
+        if: steps.automerge.outputs.mergeResult == 'merged'
+        id: version
+        uses: actions/github-script@v7
+        with:
+          result-encoding: string
+          script: |
+            return require('./package.json').version;
+
+      - name: Install dependencies
+        if: steps.automerge.outputs.mergeResult == 'merged'
+        run: npm ci
+
+      - name: Build package
+        run: npm run build
+
+      - name: Publish npm
+        if: steps.automerge.outputs.mergeResult == 'merged'
+        env:
+          PRERELEASE: ${{ contains(steps.version.outputs.result, '-') }}
+        run: |
+          npm config set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
+          npm whoami
+          npm publish
+
+      - name: Extract the commit body
+        if: steps.automerge.outputs.mergeResult == 'merged'
+        id: extract_release
+        # The body may be multiline, therefore we need to escape some characters
+        run: |
+          BODY=$(git show -s --format=%b)
+          BODY="${BODY//'%'/'%25'}"
+          BODY="${BODY//$'\n'/'%0A'}"
+          BODY="${BODY//$'\r'/'%0D'}"
+          echo "::set-output name=BODY::$BODY"
+
+      - name: Create Github Release
+        if: steps.automerge.outputs.mergeResult == 'merged'
+        uses: ncipollo/release-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag: v${{ steps.version.outputs.result }}
+          name: Release v${{ steps.version.outputs.result }}
+          draft: false
+          prerelease: ${{ contains(steps.version.outputs.result, '-') }}
+          body: ${{ steps.extract_release.outputs.BODY }}

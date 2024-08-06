@@ -2,6 +2,7 @@
   "name": "@foxriver76/iob-component-lib",
   "version": "0.1.0",
   "scripts": {
+    "release": "release-script --noPush -y",
     "lint": "eslint src",
     "clean": "rimraf build",
     "start": "storybook dev -p 6006",
@@ -14,6 +15,7 @@
   ],
   "main": "build/index.js",
   "devDependencies": {
+    "@alcalzone/release-script": "^3.8.0",
     "@babel/preset-env": "^7.25.3",
     "@babel/preset-react": "^7.24.7",
     "@babel/preset-typescript": "^7.24.7",
