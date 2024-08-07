@@ -16,3 +16,15 @@ export default {
 } satisfies Meta<typeof InfoBox>;
 
 export const Default: Story = {};
+
+export const Warning: Story = {
+    args: {
+        type: 'warning'
+    }
+};
+
+export const Error: Story = {
+    args: {
+        type: 'error'
+    }
+};
