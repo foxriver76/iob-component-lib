@@ -76,6 +76,7 @@ jobs:
         run: npm ci
 
       - name: Build package
+        if: steps.automerge.outputs.mergeResult == 'merged'
         run: npm run build
 
       - name: Publish npm
