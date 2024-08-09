@@ -19,7 +19,21 @@ import {
     AddToPhotos as AddToPhotosIcon,
     Build as BuildIcon,
     Edit as EditIcon,
-    DomainDisabled as FactoryResetIcon
+    DomainDisabled as FactoryResetIcon,
+    LeakAdd as LeakAddIcon,
+    SignalWifiConnectedNoInternet4 as IconNoConnection,
+    SignalCellularOff as IconNotAlive,
+    ContentCopy as ContentCopyIcon,
+    QuestionMark as QuestionMarkIcon,
+    SettingsInputAntenna as SettingsInputAntennaIcon,
+    SignalWifiStatusbarNull as SignalWifiStatusbarNullIcon,
+    Wifi as WifiIcon,
+    WifiOff as WifiOffIcon,
+    DeviceHub as DeviceHubIcon,
+    AutoMode as AutoModeIcon,
+    FormatListBulleted as FormatListBulletedIcon,
+    UnfoldLess as UnfoldLessIcon,
+    UnfoldMore as UnfoldMoreIcon
 } from '@mui/icons-material';
 
 export const icons = {
@@ -43,5 +57,19 @@ export const icons = {
     qrCode: QrCodeIcon,
     delete: DeleteIcon,
     edit: EditIcon,
-    factoryReset: FactoryResetIcon
+    factoryReset: FactoryResetIcon,
+    leakAdd: LeakAddIcon,
+    noConnection: IconNoConnection,
+    notAlive: IconNotAlive,
+    contentCopy: ContentCopyIcon,
+    questionMark: QuestionMarkIcon,
+    settingsInputAntenna: SettingsInputAntennaIcon,
+    signalWifiStatusbarNull: SignalWifiStatusbarNullIcon,
+    wifi: WifiIcon,
+    wifiOff: WifiOffIcon,
+    deviceHub: DeviceHubIcon,
+    autoMode: AutoModeIcon,
+    formatListBulleted: FormatListBulletedIcon,
+    unfoldLess: UnfoldLessIcon,
+    unfoldMore: UnfoldMoreIcon
 } as const;

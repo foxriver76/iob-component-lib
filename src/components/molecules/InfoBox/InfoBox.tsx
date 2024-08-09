@@ -10,6 +10,9 @@ interface InfoBoxProps {
     type: 'warning' | 'info' | 'error';
 }
 
+/**
+ * This component can be used to show important information or warnings to the user
+ */
 export default class InfoBox extends React.Component<InfoBoxProps> {
     render(): React.ReactNode {
         return (
