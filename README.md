@@ -2,10 +2,13 @@
 
 ## Changelog
 
-<!--
+<!-- 
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (@foxriver76) added IconButton Atom
 
 ### 0.1.3 (2024-08-06)
 * (@foxriver76) allow to pass down the text as a prop for more natural
