@@ -6,6 +6,8 @@
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.1.4 (2024-08-09)
+* (@foxriver76) added IconButton Atom
 
 ### **WORK IN PROGRESS**
 * (@foxriver76) added IconButton Atom
