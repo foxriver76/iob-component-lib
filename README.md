@@ -13,9 +13,6 @@
 ### 0.1.4 (2024-08-09)
 * (@foxriver76) added IconButton Atom
 
-### **WORK IN PROGRESS**
-* (@foxriver76) added IconButton Atom
-
 ### 0.1.3 (2024-08-06)
 * (@foxriver76) allow to pass down the text as a prop for more natural
 
