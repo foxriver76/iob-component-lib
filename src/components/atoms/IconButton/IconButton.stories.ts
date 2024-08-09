@@ -12,10 +12,10 @@ export default {
         onClick: fn(),
         tooltipText: 'This is a super important button',
         disabled: false,
-        icon: 'add',
-        noBackground: false
-    },
-    argTypes: {}
+        icon: 'wifi',
+        noBackground: false,
+        iconColor: 'primary'
+    }
 } satisfies Meta<typeof IconButton>;
 
 export const Default: Story = {};
