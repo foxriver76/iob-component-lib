@@ -1,4 +1,5 @@
 import {
+    QrCode as QrCodeIcon,
     Refresh as RefreshIcon,
     Add as AddIcon,
     Help as HelpIcon,
@@ -14,8 +15,11 @@ import {
     Link as LinkIcon,
     Publish as PublishIcon,
     DeleteForever as DeleteForeverIcon,
+    Delete as DeleteIcon,
     AddToPhotos as AddToPhotosIcon,
-    Build as BuildIcon
+    Build as BuildIcon,
+    Edit as EditIcon,
+    DomainDisabled as FactoryResetIcon
 } from '@mui/icons-material';
 
 export const icons = {
@@ -35,5 +39,9 @@ export const icons = {
     cloudOff: CloudOffIcon,
     arrowUpward: ArrowUpwardIcon,
     arrowDownward: ArrowDownwardIcon,
-    remove: RemoveIcon
+    remove: RemoveIcon,
+    qrCode: QrCodeIcon,
+    delete: DeleteIcon,
+    edit: EditIcon,
+    factoryReset: FactoryResetIcon
 } as const;
