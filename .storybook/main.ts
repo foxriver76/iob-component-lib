@@ -20,7 +20,8 @@ const config: StorybookConfig = {
         "options": {}
     },
     "staticDirs": [
-        "../public"
+        "../public",
+        "../src/assets"
     ],
     webpackFinal: async (config) => {
         config.resolve.alias = {

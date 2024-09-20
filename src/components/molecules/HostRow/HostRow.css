@@ -1,0 +1,14 @@
+.iom-host-row__image_wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.iom-host-row__header--inactive {
+    border-left: 4px solid #da0000;
+}
+
+.iom-host-row__header--active {
+    border-left: 4px solid #00ce00
+}

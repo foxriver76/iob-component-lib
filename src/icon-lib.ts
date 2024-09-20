@@ -1,4 +1,6 @@
 import {
+    KeyboardArrowDown as KeyboardArrowDownIcon,
+    KeyboardArrowUp as KeyboardArrowUpIcon,
     QrCode as QrCodeIcon,
     Refresh as RefreshIcon,
     Add as AddIcon,
@@ -43,5 +45,7 @@ export const icons = {
     qrCode: QrCodeIcon,
     delete: DeleteIcon,
     edit: EditIcon,
-    factoryReset: FactoryResetIcon
+    factoryReset: FactoryResetIcon,
+    chevronDown: KeyboardArrowDownIcon,
+    chevronUp: KeyboardArrowUpIcon
 } as const;
