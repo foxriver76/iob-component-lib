@@ -11,16 +11,23 @@ interface IconButtonProps {
     tooltipText?: string;
     /** The icon to display */
     icon: keyof typeof icons;
-    /** If the component should hav eno background */
+    /** If the component should have no background */
     noBackground?: boolean;
+    /** Optional color of the icon, only works with no background option */
+    iconColor?: 'primary' | 'warning' | 'error' | 'secondary' | 'default';
 }
 
+/**
+ * This component wraps the MUI Icon Button and provides the standardized ioBroker icons
+ * and functionalities like tooltip
+ */
 export default class IconButton extends React.Component<IconButtonProps> {
     render(): React.ReactNode {
         const Icon = icons[this.props.icon];
         return (
             <Tooltip title={this.props.tooltipText} componentsProps={{ popper: { sx: { pointerEvents: 'none' } } }}>
                 <MuiIconButton
+                    color={this.props.iconColor}
                     sx={
                         this.props.noBackground
                             ? undefined
@@ -30,7 +37,7 @@ export default class IconButton extends React.Component<IconButtonProps> {
                                   color: theme => theme.palette.getContrastText(theme.palette.primary.dark)
                               }
                     }
-                    size="small"
+                    size={'small'}
                     disabled={this.props.disabled}
                     onClick={() => this.props.onClick()}
                 >
