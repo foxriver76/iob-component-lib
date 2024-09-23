@@ -12,3 +12,15 @@
 .iom-host-row__header--active {
     border-left: 4px solid #00ce00
 }
+
+.iom-host-row__statistics-box {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.iom-host-row__details-box {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: space-around;
+}

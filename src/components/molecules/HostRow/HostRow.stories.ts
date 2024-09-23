@@ -1,7 +1,28 @@
 import type { StoryObj, Meta } from '@storybook/react';
 import HostRow from '@/components/molecules/HostRow/HostRow';
+import { fn } from '@storybook/test';
 
 type Story = StoryObj<typeof HostRow>;
+
+const hostDetails = {
+    Plattform: 'linux',
+    Betriebssystem: 'linux',
+    Architektur: 'arm64',
+    CPUs: 8,
+    Geschwindigkeit: '0 MHz',
+    Modell: 'unknown',
+    RAM: '23.4 GB',
+    'System-Betriebszeit': '01:53:59',
+    'Node.js': 'v20.17.0',
+    time: 1727081946263,
+    NPM: '10.8.2',
+    'Adapter-Anzahl': 631,
+    Datenträgergröße: '117.3 GB',
+    'Freier Festplattenspeicher': '24.9 GB',
+    'Aktive Instanzen': 3,
+    Pfad: '/opt/iobroker/',
+    Betriebszeit: '01:56:06'
+};
 
 export default {
     title: 'Molecules/Host Row',
@@ -10,7 +31,17 @@ export default {
     args: {
         title: 'Raspberry Pi',
         isExpertMode: false,
-        isAlive: true
+        isAlive: true,
+        cpu: 69.25,
+        ram: 15.23,
+        events: '⇥3 / ↦13',
+        uptime: '1h',
+        installedVersion: '6.0.11',
+        availableVersion: '6.0.12',
+        details: hostDetails,
+        onCopy: fn(),
+        updateAvailable: true,
+        onUpgrade: fn()
     },
     argTypes: {}
 } satisfies Meta<typeof HostRow>;
