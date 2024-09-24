@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, CardMedia, Typography } from '@mui/material';
+import { Badge, Box, CardMedia, Typography } from '@mui/material';
 import '@/components/molecules/HostRow/HostRow.css';
 import CardContent from '@mui/material/CardContent';
 import Collapse from '@mui/material/Collapse';
@@ -8,6 +8,7 @@ import CardHeader from '@mui/material/CardHeader';
 import IconButton from '@/components/atoms/IconButton/IconButton';
 import NoImage from '@/assets/logo-138.png';
 import { green } from '@mui/material/colors';
+import { icons } from '@/icon-lib';
 
 interface HostRowProps {
     /** If expert mode is turned on */
@@ -36,13 +37,45 @@ interface HostRowProps {
     onCopy: () => void;
     /** Function called if user wants to perform the host upgrade */
     onUpgrade: () => void;
-    // TODO: expertmode, tooltips, badge, screen size
+    /** Function called if user wants to open notifications */
+    onOpenNotifications: () => void;
+    /** Function called if user presses edit button */
+    onEdit: () => void;
+    /** Function called if user wants to open host settings */
+    onOpenSettings: () => void;
+    /** Function called if user wants to restart host */
+    onRestart: () => void;
+    /** Function called if user wants to change loglevel */
+    onChangeLoglevel: () => void;
+    /** How many notifications are present for this host */
+    noNotifications: number;
+    /** Color of the badge */
+    badgeColor: 'error' | 'secondary';
+    /** The current configured loglevel */
+    loglevel: ioBroker.LogLevel;
+    // TODO: loglevel, tooltips, screen size
 }
 
 interface HostRowState {
     /** If the card is expanded */
     isExpanded: boolean;
 }
+
+const loglevelToIcon: Record<ioBroker.LogLevel, keyof typeof icons> = {
+    silly: 'error',
+    debug: 'error',
+    info: 'error',
+    warn: 'error',
+    error: 'error'
+};
+
+const loglevelToColor = {
+    silly: 'default',
+    debug: 'default',
+    info: 'primary',
+    warn: 'warning',
+    error: 'error'
+} as const satisfies Record<ioBroker.LogLevel, string>;
 
 export default class HostRow extends React.Component<HostRowProps, HostRowState> {
     constructor(props: HostRowProps) {
@@ -69,7 +102,20 @@ export default class HostRow extends React.Component<HostRowProps, HostRowState>
                         }
                         title={
                             <Box className="iom-host-row__image_wrapper">
-                                <CardMedia sx={{ width: 45 }} component="img" image={NoImage}></CardMedia>
+                                <Badge
+                                    sx={{
+                                        cursor: this.props.noNotifications ? 'pointer' : 'default'
+                                    }}
+                                    badgeContent={this.props.noNotifications}
+                                    color={this.props.badgeColor}
+                                    onClick={() => {
+                                        if (this.props.noNotifications) {
+                                            this.props.onOpenNotifications();
+                                        }
+                                    }}
+                                >
+                                    <CardMedia sx={{ width: 45 }} component="img" image={NoImage}></CardMedia>
+                                </Badge>
                                 <Typography
                                     sx={{
                                         marginLeft: 1,
@@ -117,6 +163,23 @@ export default class HostRow extends React.Component<HostRowProps, HostRowState>
                                     <Typography variant="body2" color="textSecondary" sx={{ alignContent: 'center' }}>
                                         {this.props.events}
                                     </Typography>
+                                    <IconButton onClick={() => this.props.onEdit()} icon={'edit'} noBackground />
+                                    {this.props.isExpertMode ? (
+                                        <IconButton
+                                            onClick={() => this.props.onOpenSettings()}
+                                            icon={'build'}
+                                            noBackground
+                                        />
+                                    ) : null}
+                                    <IconButton onClick={() => this.props.onRestart()} icon={'refresh'} noBackground />
+                                    {this.props.isExpertMode ? (
+                                        <IconButton
+                                            onClick={() => this.props.onChangeLoglevel()}
+                                            icon={loglevelToIcon[this.props.loglevel]}
+                                            noBackground
+                                            iconColor={loglevelToColor[this.props.loglevel]}
+                                        />
+                                    ) : null}
                                 </Box>
                             </Box>
                         }

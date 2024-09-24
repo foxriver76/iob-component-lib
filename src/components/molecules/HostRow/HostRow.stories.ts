@@ -41,7 +41,15 @@ export default {
         details: hostDetails,
         onCopy: fn(),
         updateAvailable: true,
-        onUpgrade: fn()
+        onUpgrade: fn(),
+        noNotifications: 2,
+        badgeColor: 'error',
+        onOpenNotifications: fn(),
+        onEdit: fn(),
+        onRestart: fn(),
+        onOpenSettings: fn(),
+        onChangeLoglevel: fn(),
+        loglevel: 'info'
     },
     argTypes: {}
 } satisfies Meta<typeof HostRow>;

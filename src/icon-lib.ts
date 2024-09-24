@@ -35,7 +35,8 @@ import {
     AutoMode as AutoModeIcon,
     FormatListBulleted as FormatListBulletedIcon,
     UnfoldLess as UnfoldLessIcon,
-    UnfoldMore as UnfoldMoreIcon
+    UnfoldMore as UnfoldMoreIcon,
+    ErrorOutline as ErrorIcon
 } from '@mui/icons-material';
 
 export const icons = {
@@ -75,5 +76,6 @@ export const icons = {
     autoMode: AutoModeIcon,
     formatListBulleted: FormatListBulletedIcon,
     unfoldLess: UnfoldLessIcon,
-    unfoldMore: UnfoldMoreIcon
+    unfoldMore: UnfoldMoreIcon,
+    error: ErrorIcon
 } as const;
