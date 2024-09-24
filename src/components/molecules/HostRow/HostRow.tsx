@@ -10,6 +10,9 @@ import NoImage from '@/assets/logo-138.png';
 import { green } from '@mui/material/colors';
 import { icons } from '@/icon-lib';
 
+/** Redefine ioBroker.LogLevel as Storybook currently do not get the types right */
+type LogLevel = 'silly' | 'debug' | 'info' | 'warn' | 'error';
+
 interface HostRowProps {
     /** If expert mode is turned on */
     isExpertMode: boolean;
@@ -52,8 +55,8 @@ interface HostRowProps {
     /** Color of the badge */
     badgeColor: 'error' | 'secondary';
     /** The current configured loglevel */
-    loglevel: ioBroker.LogLevel;
-    // TODO: loglevel, tooltips, screen size
+    loglevel: LogLevel;
+    // TODO: tooltips, screen size
 }
 
 interface HostRowState {
@@ -62,10 +65,10 @@ interface HostRowState {
 }
 
 const loglevelToIcon: Record<ioBroker.LogLevel, keyof typeof icons> = {
-    silly: 'error',
-    debug: 'error',
-    info: 'error',
-    warn: 'error',
+    silly: 'account',
+    debug: 'bug',
+    info: 'info',
+    warn: 'warning',
     error: 'error'
 };
 
@@ -163,23 +166,29 @@ export default class HostRow extends React.Component<HostRowProps, HostRowState>
                                     <Typography variant="body2" color="textSecondary" sx={{ alignContent: 'center' }}>
                                         {this.props.events}
                                     </Typography>
-                                    <IconButton onClick={() => this.props.onEdit()} icon={'edit'} noBackground />
-                                    {this.props.isExpertMode ? (
+                                    <Box sx={{ gap: 1, display: 'flex' }}>
+                                        <IconButton onClick={() => this.props.onEdit()} icon={'edit'} noBackground />
+                                        {this.props.isExpertMode ? (
+                                            <IconButton
+                                                onClick={() => this.props.onOpenSettings()}
+                                                icon={'build'}
+                                                noBackground
+                                            />
+                                        ) : null}
                                         <IconButton
-                                            onClick={() => this.props.onOpenSettings()}
-                                            icon={'build'}
+                                            onClick={() => this.props.onRestart()}
+                                            icon={'refresh'}
                                             noBackground
                                         />
-                                    ) : null}
-                                    <IconButton onClick={() => this.props.onRestart()} icon={'refresh'} noBackground />
-                                    {this.props.isExpertMode ? (
-                                        <IconButton
-                                            onClick={() => this.props.onChangeLoglevel()}
-                                            icon={loglevelToIcon[this.props.loglevel]}
-                                            noBackground
-                                            iconColor={loglevelToColor[this.props.loglevel]}
-                                        />
-                                    ) : null}
+                                        {this.props.isExpertMode ? (
+                                            <IconButton
+                                                onClick={() => this.props.onChangeLoglevel()}
+                                                icon={loglevelToIcon[this.props.loglevel]}
+                                                noBackground
+                                                iconColor={loglevelToColor[this.props.loglevel]}
+                                            />
+                                        ) : null}
+                                    </Box>
                                 </Box>
                             </Box>
                         }

@@ -36,7 +36,11 @@ import {
     FormatListBulleted as FormatListBulletedIcon,
     UnfoldLess as UnfoldLessIcon,
     UnfoldMore as UnfoldMoreIcon,
-    ErrorOutline as ErrorIcon
+    ErrorOutline as ErrorIcon,
+    Warning as WarningIcon,
+    InfoOutlined as InfoIcon,
+    BugReportOutlined as BugReportIcon,
+    AccountCircle as AccountCircleIcon
 } from '@mui/icons-material';
 
 export const icons = {
@@ -77,5 +81,9 @@ export const icons = {
     formatListBulleted: FormatListBulletedIcon,
     unfoldLess: UnfoldLessIcon,
     unfoldMore: UnfoldMoreIcon,
-    error: ErrorIcon
+    error: ErrorIcon,
+    warning: WarningIcon,
+    info: InfoIcon,
+    bug: BugReportIcon,
+    account: AccountCircleIcon
 } as const;
