@@ -1,6 +1,7 @@
 import type { StoryObj, Meta } from '@storybook/react';
 import HostRow from '@/components/molecules/HostRow/HostRow';
 import { fn } from '@storybook/test';
+import NoImage from '@/assets/logo-138.png';
 
 type Story = StoryObj<typeof HostRow>;
 
@@ -49,7 +50,15 @@ export default {
         onRestart: fn(),
         onOpenSettings: fn(),
         onChangeLoglevel: fn(),
-        loglevel: 'info'
+        loglevel: 'info',
+        editTooltip: 'Host bearbeiten',
+        loglevelTooltip: 'Log-Stufe info',
+        restartTooltip: 'Host neu starten',
+        settingsTooltip: 'Host-Basiseinstellungen',
+        copyTooltip: 'In die Zwischenablage kopieren',
+        upgradeTooltip: 'Aktualisieren',
+        notificationsTooltip: 'Host-Benachrichtigungen anzeigen',
+        image: NoImage
     },
     argTypes: {}
 } satisfies Meta<typeof HostRow>;
