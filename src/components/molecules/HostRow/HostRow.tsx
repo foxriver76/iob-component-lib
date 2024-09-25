@@ -245,7 +245,7 @@ export default class HostRow extends React.Component<HostRowProps, HostRowState>
                             </Box>
                             <Box className="iom-host-row__details-box">
                                 {Object.entries(this.props.details).map(([key, value]) => (
-                                    <Box sx={{ display: 'inline-flex' }}>
+                                    <Box sx={{ display: 'inline-flex' }} key={key}>
                                         <Typography
                                             variant="caption"
                                             sx={{ fontWeight: 'bold', whiteSpace: 'preserve' }}
