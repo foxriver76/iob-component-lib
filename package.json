@@ -8,7 +8,7 @@
     "release": "release-script --noPush -y",
     "lint": "eslint src",
     "clean": "rimraf build",
-    "start": "storybook dev -p 6006",
+    "start": "DISABLE_ESLINT_PLUGIN=true storybook dev -p 6006",
     "build": "tsc && cpy src/**/*.css build && tsc-alias",
     "test": "jest src",
     "build-storybook": "storybook build"

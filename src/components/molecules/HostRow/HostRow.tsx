@@ -119,7 +119,7 @@ export default class HostRow extends React.Component<HostRowProps, HostRowState>
                         }
                         title={
                             <Box className="iom-host-row__image_wrapper">
-                                <Tooltip title={this.props.notificationsTooltip}>
+                                <Tooltip title={this.props.noNotifications ? this.props.notificationsTooltip : ''}>
                                     <Badge
                                         sx={{
                                             cursor: this.props.noNotifications ? 'pointer' : 'default'
