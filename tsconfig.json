@@ -1,7 +1,8 @@
 {
   "include": ["src"],
   "compilerOptions": {
-    "baseUrl": ".",
+  "types": ["@iobroker/types", "jest", "@testing-library/jest-dom"],
+  "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     },
