@@ -10,6 +10,7 @@ interface InfoBoxProps {
     type: 'warning' | 'info' | 'error';
     /** If the Box is closeable */
     closeable?: boolean;
+    /** Use together with `closeable: true`, listener called if close button clicked */
     onClose?: () => void;
 }
 
