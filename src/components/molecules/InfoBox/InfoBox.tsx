@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import { Info, Warning } from '@mui/icons-material';
+import { Info, Warning, Close } from '@mui/icons-material';
 import '@/components/molecules/InfoBox/InfoBox.css';
 
 interface InfoBoxProps {
@@ -8,6 +8,9 @@ interface InfoBoxProps {
     children: string;
     /** The type determines the color and symbol */
     type: 'warning' | 'info' | 'error';
+    /** If the Box is closeable */
+    closeable?: boolean;
+    onClose?: () => void;
 }
 
 /**
@@ -19,6 +22,16 @@ export default class InfoBox extends React.Component<InfoBoxProps> {
             <Box className="iom-info-box" sx={{ borderColor: theme => theme.palette[this.props.type].main }}>
                 {this.props.type === 'info' ? <Info color={'primary'} /> : <Warning color={this.props.type} />}
                 <Typography>{this.props.children}</Typography>
+                {this.props.closeable ? (
+                    <Close
+                        sx={{
+                            color: theme => (theme.palette.mode === 'dark' ? 'lightgray' : 'gray'),
+                            alignSelf: 'flex-start',
+                            cursor: 'pointer'
+                        }}
+                        onClick={this.props.onClose}
+                    />
+                ) : null}
             </Box>
         );
     }
