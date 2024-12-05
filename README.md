@@ -6,8 +6,7 @@
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.2.0 (2024-12-05)
 * (foxriver76) allow to make `InfoText` closeable
 
 ### 0.1.6 (2024-09-30)
