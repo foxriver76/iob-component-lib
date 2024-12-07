@@ -1,4 +1,6 @@
 import {
+    KeyboardArrowDown as KeyboardArrowDownIcon,
+    KeyboardArrowUp as KeyboardArrowUpIcon,
     QrCode as QrCodeIcon,
     Refresh as RefreshIcon,
     Add as AddIcon,
@@ -33,7 +35,12 @@ import {
     AutoMode as AutoModeIcon,
     FormatListBulleted as FormatListBulletedIcon,
     UnfoldLess as UnfoldLessIcon,
-    UnfoldMore as UnfoldMoreIcon
+    UnfoldMore as UnfoldMoreIcon,
+    ErrorOutline as ErrorIcon,
+    Warning as WarningIcon,
+    InfoOutlined as InfoIcon,
+    BugReportOutlined as BugReportIcon,
+    AccountCircle as AccountCircleIcon
 } from '@mui/icons-material';
 
 export const icons = {
@@ -58,6 +65,8 @@ export const icons = {
     delete: DeleteIcon,
     edit: EditIcon,
     factoryReset: FactoryResetIcon,
+    chevronDown: KeyboardArrowDownIcon,
+    chevronUp: KeyboardArrowUpIcon,
     leakAdd: LeakAddIcon,
     noConnection: IconNoConnection,
     notAlive: IconNotAlive,
@@ -71,5 +80,10 @@ export const icons = {
     autoMode: AutoModeIcon,
     formatListBulleted: FormatListBulletedIcon,
     unfoldLess: UnfoldLessIcon,
-    unfoldMore: UnfoldMoreIcon
+    unfoldMore: UnfoldMoreIcon,
+    error: ErrorIcon,
+    warning: WarningIcon,
+    info: InfoIcon,
+    bug: BugReportIcon,
+    account: AccountCircleIcon
 } as const;

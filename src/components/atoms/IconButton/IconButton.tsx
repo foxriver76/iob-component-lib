@@ -14,7 +14,7 @@ interface IconButtonProps {
     /** If the component should have no background */
     noBackground?: boolean;
     /** Optional color of the icon, only works with no background option */
-    iconColor?: 'primary' | 'warning' | 'error' | 'secondary' | 'default';
+    iconColor?: 'primary' | 'warning' | 'error' | 'secondary' | 'default' | 'inherit';
 }
 
 /**
